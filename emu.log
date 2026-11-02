@@ -1,0 +1,103 @@
+INFO         | Android emulator version 37.2.13.0 (build_id 16740729) (CL:N/A)
+INFO         | Graphics backend: gfxstream
+INFO         | Found systemPath /home/narfman0/Android/Sdk/system-images/android-34/android-wear/x86_64/
+INFO         | Saving last run QEMU version for the AVD to 2
+INFO         | Increasing RAM size to 2048MB
+INFO         | Guest GLES Driver: Auto (ext controls)
+INFO         | emuglConfig_init: vulkan_mode_selected:swiftshader gles_mode_selected:swangle
+INFO         | Checking system compatibility:
+INFO         |   Checking: hasSufficientDiskSpace
+INFO         |      Ok: Disk space requirements to run avd: `wear34` are met
+INFO         |   Checking: hasSufficientHwGpu
+INFO         |      Ok: Hardware GPU compatibility checks are not required
+INFO         |   Checking: hasSufficientSystem
+INFO         |      Ok: System requirements to run avd: `wear34` are met
+WARNING      | File System is not ext4, disable QuickbootFileBacked feature
+INFO         | Storing crashdata in: /tmp/android-narfman0/emu-crash-37.2.13.db, detection is enabled for process: 345635
+INFO         | Initializing gfxstream backend
+INFO         | startOpenglesRendererImpl: gpu info
+INFO         | 
+INFO         | initIcdPaths: ICD set to 'swiftshader', using Swiftshader ICD
+INFO         | Setting ICD filenames for the loader = /home/narfman0/Android/Sdk/emulator/lib64/vulkan/vk_swiftshader_icd.json
+INFO         | SharedLibrary::open for [/home/narfman0/Android/Sdk/emulator/qemu/linux-x86_64/lib64/vulkan/libvulkan.so]
+INFO         | SharedLibrary::open for [/home/narfman0/Android/Sdk/emulator/qemu/linux-x86_64/lib64/vulkan/libvulkan.so.1]
+INFO         | SharedLibrary::open for [/home/narfman0/Android/Sdk/emulator/lib64/vulkan/libvulkan.so]
+INFO         | Added library: /home/narfman0/Android/Sdk/emulator/lib64/vulkan/libvulkan.so
+INFO         | Selecting Vulkan device: SwiftShader Device (Subzero), Version: 1.3.0
+INFO         | Using Vulkan externalMemoryMode: OpaqueFd for VkEmulation
+INFO         | Format VK_FORMAT_G10X6_B10X6R10X6_2PLANE_422_UNORM_3PACK16 does not support YCbCr sampler conversion
+INFO         | SharedLibrary::open for [libX11]
+INFO         | SharedLibrary::open for [libX11-xcb]
+INFO         | Initializing VkEmulation features:
+INFO         |     glInteropSupported: false
+INFO         |     useDeferredCommands: true
+INFO         |     createResourceWithRequirements: true
+INFO         |     useVulkanComposition: false
+INFO         |     useVulkanNativeSwapchain: false
+INFO         |     enable guestRenderDoc: false
+INFO         |     ASTC LDR emulation mode: Gpu
+INFO         |     enable ETC2 emulation: true
+INFO         |     enable Ycbcr emulation: false
+INFO         |     guestVulkanOnly: false
+INFO         |     useDedicatedAllocations: false
+INFO         |     guestVulkanMaxApiVersion: 1.3.0
+INFO         |     enableProtectedMemoryEmulation: false
+INFO         | Graphics Adapter Vendor Google (Google Inc. (Google))
+INFO         | Graphics Adapter Android Emulator OpenGL ES Translator (ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver-5.0.0))
+INFO         | Graphics API Version OpenGL ES 3.0 (OpenGL ES 3.1.0 (ANGLE 2.1.17841 git hash: 5fa2e61da947))
+INFO         | Graphics API Extensions GL_OES_EGL_sync GL_OES_EGL_image GL_OES_EGL_image_external GL_OES_depth24 GL_OES_depth32 GL_OES_element_index_uint GL_OES_texture_float GL_OES_texture_float_linear GL_OES_compressed_paletted_texture GL_OES_compressed_ETC1_RGB8_texture GL_OES_depth_texture GL_OES_texture_half_float GL_OES_texture_half_float_linear GL_OES_packed_depth_stencil GL_OES_vertex_half_float GL_OES_standard_derivatives GL_OES_texture_npot GL_OES_rgb8_rgba8 GL_OVR_multiview2 GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_texture_format_BGRA8888 GL_APPLE_texture_format_BGRA8888 GL_EXT_draw_buffers_indexed GL_EXT_clip_cull_distance 
+INFO         | Graphics Device Extensions N/A
+INFO         | Disabling sparse binding feature support
+ERROR        | Setting read-only feature 'GLAsyncSwap' to '0'
+INFO         | Feature 'GLAsyncSwap' (50) is overridden to 'disabled'
+INFO         | Sending adb public key [QAAAAONxvzQ1pHhP0VDq/ee6T0Rn37RbZtv/O23Q8CSD6QokbmTvm1gDx2RanSkSubenVsow2+48ZBCLc5T8N+9lokOTdOrSZp1nvEjXGL7ytLokieAKDYb5TXyppT8v6Cope9dquCmnK75Ks/w/Ly4IIv0+9naaoO7dre9svUg8ekK0brW27Mtt0rBy8xxWAE+5+UjnyjeE9CLkyQ25O1oDJYKnKpUAQz1t35Qd/o200FUCPwl615/gZ0+7m7vqeNHj6kD6OUQpEpajAcxmD0hLLe2N4ISRwq5hvjFo01nW8Vng7vZBFOwvlIJLyvkguW/wZjbUYtcr/qE13c6kbAIcrE+ozBalsuCysFtX9giXVCti+zAmCIX7cksN/VWbSwZNoAdI3pRxdpcE252Jt1LVxPea+OAdtCda3WCsyhzVImac9CxbtOnpVMJP7GoycLPS1CBmvMBdniBzdlJ0JLcxwZMDWtccND1w+RrQMXdNqB3QaKW++HGlV7i2wzeD7dgCdEt8b8cWWAPNk5KfR0PWn174qiergMuo47UXPc0xAtrOomQoz7XhLLcxfyipNYEcfG22mmYwUWg6y4ccDPElwCbPL3e5Qgq6XkG5pFD3Woora0jyQVWMYVaxkb+MSnJtVDqB2CivYpiCa+azpCV7w0jIvgHdgT2JfLlEnoQTWZ3PoQygCwEAAQA= narfman0@ai]
+INFO         | Userspace boot properties:
+INFO         |   androidboot.boot_devices=pci0000:00/0000:00:03.0 pci0000:00/0000:00:06.0
+INFO         |   androidboot.dalvik.vm.heapsize=512m
+INFO         |   androidboot.debug.hwui.renderer=skiagl
+INFO         |   androidboot.debug.sf.nobootanimation=1
+INFO         |   androidboot.emulator.circular=1
+INFO         |   androidboot.hardware=ranchu
+INFO         |   androidboot.hardware.gltransport=pipe
+INFO         |   androidboot.hardware.vulkan=ranchu
+INFO         |   androidboot.logcat=*:V
+INFO         |   androidboot.opengles.version=196609
+INFO         |   androidboot.qemu=1
+INFO         |   androidboot.qemu.adb.pubkey=QAAAAONxvzQ1pHhP0VDq/ee6T0Rn37RbZtv/O23Q8CSD6QokbmTvm1gDx2RanSkSubenVsow2+48ZBCLc5T8N+9lokOTdOrSZp1nvEjXGL7ytLokieAKDYb5TXyppT8v6Cope9dquCmnK75Ks/w/Ly4IIv0+9naaoO7dre9svUg8ekK0brW27Mtt0rBy8xxWAE+5+UjnyjeE9CLkyQ25O1oDJYKnKpUAQz1t35Qd/o200FUCPwl615/gZ0+7m7vqeNHj6kD6OUQpEpajAcxmD0hLLe2N4ISRwq5hvjFo01nW8Vng7vZBFOwvlIJLyvkguW/wZjbUYtcr/qE13c6kbAIcrE+ozBalsuCysFtX9giXVCti+zAmCIX7cksN/VWbSwZNoAdI3pRxdpcE252Jt1LVxPea+OAdtCda3WCsyhzVImac9CxbtOnpVMJP7GoycLPS1CBmvMBdniBzdlJ0JLcxwZMDWtccND1w+RrQMXdNqB3QaKW++HGlV7i2wzeD7dgCdEt8b8cWWAPNk5KfR0PWn174qiergMuo47UXPc0xAtrOomQoz7XhLLcxfyipNYEcfG22mmYwUWg6y4ccDPElwCbPL3e5Qgq6XkG5pFD3Woora0jyQVWMYVaxkb+MSnJtVDqB2CivYpiCa+azpCV7w0jIvgHdgT2JfLlEnoQTWZ3PoQygCwEAAQA= narfman0@ai
+INFO         |   androidboot.qemu.avd_name=wear34
+INFO         |   androidboot.qemu.camera_hq_edge_processing=0
+INFO         |   androidboot.qemu.camera_protocol_ver=1
+INFO         |   androidboot.qemu.cpuvulkan.version=4206592
+INFO         |   androidboot.qemu.gltransport.drawFlushInterval=800
+INFO         |   androidboot.qemu.gltransport.name=pipe
+INFO         |   androidboot.qemu.hwcodec.avcdec=2
+INFO         |   androidboot.qemu.hwcodec.hevcdec=2
+INFO         |   androidboot.qemu.hwcodec.vpxdec=2
+INFO         |   androidboot.qemu.settings.system.screen_off_timeout=2147483647
+INFO         |   androidboot.qemu.skin=384x384
+INFO         |   androidboot.qemu.virtiowifi=1
+INFO         |   androidboot.qemu.vsync=60
+INFO         |   androidboot.serialno=EMULATOR37X2X13X0
+INFO         |   androidboot.vbmeta.digest=3f1bc909a70d36934edc7c65d1a5b417bc53eb412c94347340954a873507644a
+INFO         |   androidboot.vbmeta.hash_alg=sha256
+INFO         |   androidboot.vbmeta.size=6656
+INFO         |   androidboot.veritymode=enforcing
+INFO         | Activated packet streamer for bluetooth emulation
+WARNING: cannnot unmap ptr 0x7f04f8201000 as it is in the protected range from 0x7f0478200000 to 0x7f04f8400000
+INFO         | Monitoring duration of emulator setup.
+WARNING      | The emulator now requires a signed jwt token for gRPC access! Use the -grpc flag if you really want an open unprotected grpc port
+INFO         | Using security allow list from: /home/narfman0/Android/Sdk/emulator/lib/emulator_access.json
+INFO         | The active JSON Web Key Sets can be found here: /run/user/1000/avd/running/345635/jwks/1743e9f5-aa0c-4572-9486-10458d819789/active.jwk
+INFO         | Scanning /run/user/1000/avd/running/345635/jwks/1743e9f5-aa0c-4572-9486-10458d819789 for jwk keys.
+INFO         | Started GRPC server at 127.0.0.1:8554, security: Local, auth: +token
+INFO         | Advertising in: /run/user/1000/avd/running/pid_345635.ini
+INFO         | Successfully initialized netsim WiFi
+INFO         | Setting display: 0 configuration to: 384x384, dpi: 320x320 
+INFO         | setDisplayActiveConfig: id:0, 384x384
+INFO         | emulatorSetupEnvironment: Environment scene is not required
+USER_INFO    | Emulator is performing a full startup. This may take upto two minutes, or more.
+INFO         | ColorBufferGl::readPixels NOT supported for tex(internal:0x8051 fmt:0x1907 type:0x1401) read(fmt:0x1907 type:0x1401) error: 0x502
+ERROR        | UNIMPLEMENTED: GLES driver doesn't support readback for (components=0x1908 type=0x1401) and no software conversion implemented.
+ERROR        | UNIMPLEMENTED: GLES driver doesn't support readback for (components=0x1908 type=0x1401) and no software conversion implemented.
+INFO         | Boot completed in 16275 ms
+INFO         | Increasing screen off timeout, logcat buffer size to 2M.

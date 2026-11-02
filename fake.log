@@ -1,0 +1,8 @@
+fake-hermes: request {"input": "x"}
+fake-hermes: "POST /v1/responses HTTP/1.1" 200 -
+fake-hermes: request {"model": "hermes-agent", "input": "what", "conversation": "pixel-watch", "stream": true}
+fake-hermes: "POST /v1/responses HTTP/1.1" 200 -
+fake-hermes: request {"model": "hermes-agent", "input": "what is two plus two", "conversation": "pixel-watch", "stream": true}
+fake-hermes: "POST /v1/responses HTTP/1.1" 200 -
+fake-hermes: request {"model": "hermes-agent", "input": "hello watch", "conversation": "pixel-watch", "stream": true}
+fake-hermes: "POST /v1/responses HTTP/1.1" 200 -
