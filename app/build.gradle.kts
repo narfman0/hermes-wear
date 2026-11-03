@@ -17,7 +17,11 @@ android {
     }
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            // Sideloaded personal build: sign with the debug key so `adb install -r` upgrades a debug install in place.
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
     buildFeatures {
