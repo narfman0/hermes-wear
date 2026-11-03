@@ -82,4 +82,23 @@ class HermesClientTest {
         try { HermesClient(Config("", "")).ask("hi").toList(); fail("expected error") }
         catch (e: HermesException) { assertTrue(e.message!!.contains("Set the server")) }
     }
+
+    @Test fun checkPassesWithGoodKey() = runBlocking {
+        server.enqueue(MockResponse().setBody("""{"data":[]}"""))
+        assertEquals("Connected", client().check())
+        val req = server.takeRequest()
+        assertEquals("/v1/models", req.path)
+        assertEquals("Bearer k", req.getHeader("Authorization"))
+    }
+
+    @Test fun checkReportsWrongKey() = runBlocking {
+        server.enqueue(MockResponse().setResponseCode(401))
+        try { client().check(); fail("expected error") }
+        catch (e: HermesException) { assertEquals("Wrong API key", e.message) }
+    }
+
+    @Test fun badUrlIsAFriendlyError() = runBlocking {
+        try { HermesClient(Config("not a url")).check(); fail("expected error") }
+        catch (e: HermesException) { assertEquals("Bad server URL", e.message) }
+    }
 }

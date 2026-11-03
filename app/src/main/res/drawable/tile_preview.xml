@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Shown in the tile picker. A dark disc with the Hermes star. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@color/ic_background" />
+            <size android:width="192dp" android:height="192dp" />
+        </shape>
+    </item>
+    <item android:drawable="@drawable/ic_foreground" android:gravity="center" />
+</layer-list>

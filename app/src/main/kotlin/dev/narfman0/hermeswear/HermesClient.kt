@@ -1,10 +1,10 @@
 package dev.narfman0.hermeswear
 
-import android.content.Context
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.withContext
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
@@ -13,6 +13,8 @@ import kotlinx.serialization.json.contentOrNull
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 import kotlinx.serialization.json.put
+import okhttp3.HttpUrl
+import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -26,24 +28,6 @@ interface ServerConfig {
     val apiKey: String
     val conversation: String
     val configured: Boolean get() = baseUrl.isNotEmpty() && apiKey.isNotEmpty()
-}
-
-/** Server address and key, stored on the watch. Set via adb in debug builds. */
-class Prefs(context: Context) : ServerConfig {
-    private val sp = context.applicationContext.getSharedPreferences("hermes", Context.MODE_PRIVATE)
-
-    override var baseUrl: String
-        get() = sp.getString("url", "") ?: ""
-        set(v) = sp.edit().putString("url", v.trim().trimEnd('/')).apply()
-
-    override var apiKey: String
-        get() = sp.getString("key", "") ?: ""
-        set(v) = sp.edit().putString("key", v.trim()).apply()
-
-    /** Server-side conversation name, so the watch keeps one running thread. */
-    override var conversation: String
-        get() = sp.getString("conversation", "pixel-watch") ?: "pixel-watch"
-        set(v) = sp.edit().putString("conversation", v.trim()).apply()
 }
 
 class HermesException(message: String, cause: Throwable? = null) : IOException(message, cause)
@@ -74,7 +58,7 @@ class HermesClient(private val prefs: ServerConfig) {
         }.toString().toRequestBody("application/json".toMediaType())
 
         val request = Request.Builder()
-            .url("${prefs.baseUrl}/v1/responses")
+            .url(endpoint("/v1/responses"))
             .header("Authorization", "Bearer ${prefs.apiKey}")
             .header("Accept", "text/event-stream")
             .post(body)
@@ -117,6 +101,33 @@ class HermesClient(private val prefs: ServerConfig) {
             call.cancel()
         }
     }.flowOn(Dispatchers.IO)
+
+    /** Checks the URL and key with `GET /v1/models`. Returns a short status, throws on failure. */
+    suspend fun check(): String = withContext(Dispatchers.IO) {
+        if (!prefs.configured) throw HermesException("Set the server URL and key first")
+        val request = Request.Builder()
+            .url(endpoint("/v1/models"))
+            .header("Authorization", "Bearer ${prefs.apiKey}")
+            .get()
+            .build()
+        try {
+            http.newCall(request).execute().use { response ->
+                when {
+                    response.isSuccessful -> "Connected"
+                    response.code == 401 || response.code == 403 -> throw HermesException("Wrong API key")
+                    response.code == 404 -> throw HermesException("Not a Hermes API server")
+                    else -> throw HermesException("Server error ${response.code}")
+                }
+            }
+        } catch (e: HermesException) {
+            throw e
+        } catch (e: IOException) {
+            throw HermesException("Can't reach server", e)
+        }
+    }
+
+    private fun endpoint(path: String): HttpUrl =
+        "${prefs.baseUrl}$path".toHttpUrlOrNull() ?: throw HermesException("Bad server URL")
 
     private fun JsonObject.string(key: String): String? =
         (this[key] as? JsonPrimitive)?.contentOrNull
